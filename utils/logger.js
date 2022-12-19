@@ -6,11 +6,15 @@
 // like graylog or papertrail we would only have to make changes in one place.
 
 const info = (...params) => {
-  console.log('Params', ...params)
+  if (process.env.NODE_ENV !== 'test') {
+    console.log('Params', ...params)
+  }
 }
 
 const error = (...params) => {
-  console.error('Params', ...params)
+  if (process.env.NODE_ENV !== 'test') {
+    console.error('Params', ...params)
+  }
 }
 
 module.exports = { info, error }

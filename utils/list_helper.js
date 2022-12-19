@@ -13,4 +13,17 @@ const totalLikes = (blogs) => {
   return total
 }
 
-module.exports = { dummy, totalLikes }
+const favoriteBlog = (blogs) => {
+  let highestLikes = 0
+  blogs.map((blog) => {
+    if (highestLikes <= blog.likes) {
+      highestLikes = blog.likes
+    }
+  })
+
+  const highestBlog = blogs.find((blog) => highestLikes === blog.likes)
+
+  return highestBlog
+}
+
+module.exports = { dummy, totalLikes, favoriteBlog }
